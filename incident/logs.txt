@@ -1,0 +1,17 @@
+# orders-api application logs (Graylog export), 2026-09-02 UTC
+# stream: orders-api, namespace: orders. Trimmed to the relevant window.
+
+14:40:03  INFO  orders-api  starting up; build sha 9f2a1c7 (PR #47); pool_max=20
+14:40:04  INFO  orders-api  healthz ok
+14:41:10  INFO  orders-api  GET /orders/AO-1187 200 in 12ms
+14:43:52  INFO  orders-api  GET /orders/AO-1190 200 in 11ms
+14:45:20  INFO  orders-api  GET /customers/C-55/orders 200 in 18ms
+14:47:33  WARN  orders-api  db pool checked-out=14/20 (rising)
+14:49:06  WARN  orders-api  db pool checked-out=18/20 (rising)
+14:50:41  WARN  orders-api  db pool checked-out=20/20; getconn() waiting
+14:50:46  ERROR orders-api  GET /orders/AO-1204 500 ; get_conn timed out after 5s (QueuePool limit of size 20 reached)
+14:51:33  ERROR orders-api  GET /orders/AO-1206 500 ; get_conn timed out after 5s
+14:52:08  ERROR orders-api  5xx ratio 23% over trailing 3m
+14:56:variable INFO  orders-api  (rolling) starting up; build sha b1e4d90 (PR #48); pool_max=20
+14:58:12  ERROR orders-api  GET /orders/AO-1233 500 ; get_conn timed out after 5s (QueuePool limit of size 20 reached)
+15:00:00  ERROR orders-api  5xx ratio 27% ; get_conn timeouts continuing

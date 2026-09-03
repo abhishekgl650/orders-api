@@ -1,0 +1,20 @@
+# orders-api configuration
+service:
+  name: orders-api
+  port: 8080
+  namespace: orders
+
+database:
+  host: orders-db.internal
+  name: orders
+  user: orders_api
+  connect_timeout_seconds: 5
+  # Connection pool. These map to DB_POOL_MIN / DB_POOL_MAX env vars.
+  pool_min: 2
+  pool_max: 20            # unchanged since service launch (see deploy-history)
+
+timeouts:
+  request_seconds: 10
+
+# Shared infra note: orders-db.internal is also used by the read-only
+# reporting-worker service. Any change to the database itself is cross-team.

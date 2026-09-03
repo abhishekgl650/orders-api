@@ -1,0 +1,30 @@
+{
+  "source": "PagerDuty",
+  "incident_id": "PD-20260902-0007",
+  "created_at": "2026-09-02T14:52:11Z",
+  "severity": "high",
+  "service": "orders-api",
+  "title": "orders-api: 5xx error rate above threshold (23% of requests)",
+  "triggered_by": {
+    "monitor": "Datadog",
+    "monitor_name": "orders-api HTTP 5xx ratio",
+    "condition": "5xx ratio > 5% for 3 minutes",
+    "observed": "5xx ratio 23% and climbing"
+  },
+  "correlated_signals": [
+    {
+      "monitor": "Datadog",
+      "monitor_name": "orders-db connection acquisition timeout",
+      "observed": "get_conn() timing out after 5s; QueuePool limit reached",
+      "first_seen": "2026-09-02T14:50:40Z"
+    },
+    {
+      "monitor": "Datadog",
+      "monitor_name": "reporting-worker CPU high",
+      "observed": "reporting-worker CPU 88% (scheduled nightly rollup running)",
+      "first_seen": "2026-09-02T14:31:00Z",
+      "note": "recurs every day around this time"
+    }
+  ],
+  "runbook": "incident/RUNBOOK.md"
+}
